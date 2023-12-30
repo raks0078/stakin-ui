@@ -1,10 +1,10 @@
 import idl from '../lib/mango.json'
-import { ADMIN_ADDRESS } from '../constant';
+import { ADMIN_ADDRESS, BANANA_TOKEN_ADDRESS, POOL_INFO_STORAGE } from '../constant';
 
 import BigNumber from 'bignumber.js';
 
 import { WalletNotSelectedError, useWallet } from 'solana-wallets-vue';
-import { Connection, Transaction, clusterApiUrl, PublicKey } from '@solana/web3.js';
+import { Connection, SystemProgram, clusterApiUrl, PublicKey, Transaction } from '@solana/web3.js';
 
 import { Program, AnchorProvider, web3 } from '@coral-xyz/anchor';
 
@@ -41,14 +41,36 @@ export async function unstake() {
         throw WalletNotSelectedError
     }
 
+    try {
+        const provider = getProvider();
+        const program = new Program(idl, programId, provider);
+
+        const tx = await program.methods.initialize().accounts(
+            {
+                user: provider.wallet.publicKey,
+                admin: ADMIN_ADDRESS,
+                payer: ADMIN_ADDRESS,
+                poolInfo: POOL_INFO_STORAGE,
+                stakingToken: BANANA_TOKEN_ADDRESS,
+                adminStakingWallet: ADMIN_ADDRESS,
+                systemProgram: SystemProgram.programId,
+            }
+        ).signers().rpc().
+            console.log("transaction submitted: ", tx)
+    } catch (error) {
+        console.error(error)
+    }
+
     // get user info
     try {
         const provider = getProvider();
-        const accounts = await provider.connection.getParsedProgramAccounts(programId)
+        const accounts = await provider.connection.getProgramAccounts(programId)
         console.log("program accounts: ", accounts)
     } catch (error) {
         console.error("program accounts error: ", error)
     }
+
+
 
     // send instruction
     // try {

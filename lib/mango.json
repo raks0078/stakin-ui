@@ -11,6 +11,11 @@
           "isSigner": true
         },
         {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
           "name": "poolInfo",
           "isMut": true,
           "isSigner": true
@@ -31,16 +36,7 @@
           "isSigner": false
         }
       ],
-      "args": [
-        {
-          "name": "startSlot",
-          "type": "u64"
-        },
-        {
-          "name": "endSlot",
-          "type": "u64"
-        }
-      ]
+      "args": []
     },
     {
       "name": "stake",
@@ -57,6 +53,11 @@
         },
         {
           "name": "userInfo",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "poolInfo",
           "isMut": true,
           "isSigner": true
         },
@@ -112,6 +113,11 @@
           "isSigner": false
         },
         {
+          "name": "poolInfo",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
           "name": "userStakingWallet",
           "isMut": true,
           "isSigner": false
@@ -143,12 +149,22 @@
           "isSigner": false
         },
         {
+          "name": "referral",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
           "name": "admin",
           "isMut": true,
           "isSigner": false
         },
         {
           "name": "userInfo",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "poolInfo",
           "isMut": true,
           "isSigner": false
         },
@@ -174,6 +190,62 @@
         }
       ],
       "args": []
+    },
+    {
+      "name": "addReferral",
+      "accounts": [
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "admin",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "userInfo",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "poolInfo",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "userStakingWallet",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "adminStakingWallet",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "stakingToken",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "referral",
+          "type": "publicKey"
+        }
+      ]
     }
   ],
   "accounts": [
@@ -197,6 +269,14 @@
           {
             "name": "token",
             "type": "publicKey"
+          },
+          {
+            "name": "tvl",
+            "type": "u64"
+          },
+          {
+            "name": "mintedReward",
+            "type": "u64"
           }
         ]
       }
@@ -219,21 +299,9 @@
             "type": "u64"
           },
           {
-            "name": "referralId",
-            "type": "bytes"
-          },
-          {
-            "name": "referrer",
+            "name": "referral",
             "type": {
               "option": "publicKey"
-            }
-          },
-          {
-            "name": "referee",
-            "type": {
-              "option": {
-                "vec": "publicKey"
-              }
             }
           }
         ]
@@ -241,6 +309,6 @@
     }
   ],
   "metadata": {
-    "address": "FnPEsqZTAgJpbYmNKYTyWY6NaHm6yZ1Z2yXjXkMFjU6f"
+    "address": "92CPjhz5G19stRScGBnvK6VeSXioTTcSHACJGW72cWGB"
   }
 }
