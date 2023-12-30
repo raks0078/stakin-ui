@@ -1,6 +1,5 @@
 <script setup>
-import TransferDbaToken from './components/TransferToken.vue';
-import ConnectWallet from './components/ConnectWallet.vue'
+import Page from './components/Page.vue'
 
 import "solana-wallets-vue/styles.css"
 import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
@@ -19,13 +18,14 @@ const walletOptions = {
 <template>
   <header>
     <div class="wrapper">
-      <ConnectWallet />
+      <Page />
     </div>
   </header>
 
-  <main>
+  <!-- <main>
     <TransferDbaToken />
   </main>
+ -->
 </template>
 
 <style scoped>

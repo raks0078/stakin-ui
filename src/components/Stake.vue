@@ -7,7 +7,7 @@
 </template>
   
 <script>
-import { transferSplToken } from '../../lib/createTransferTx'
+import { stake } from '../../lib/stake'
 
 export default {
 
@@ -18,7 +18,7 @@ export default {
     },
     methods: {
         submit() {
-            transferSplToken(this.amount)
+            stake(this.amount)
         }
     }
 }
