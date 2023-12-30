@@ -5,7 +5,7 @@ import BigNumber from 'bignumber.js';
 import { WalletNotSelectedError, useWallet } from 'solana-wallets-vue';
 import { Connection, Transaction } from '@solana/web3.js';
 
-export async function claimReward(amount) {
+export async function claimReward() {
     // get contract address
     let programId = new PublicKey(idl.metadata.address);
     console.log('Program Id set correctly: ', programId);

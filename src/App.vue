@@ -16,21 +16,44 @@ const walletOptions = {
 </script>
 
 <template>
-  <header>
-    <div class="wrapper">
-      <Page />
-    </div>
-  </header>
+  <div class="">
+    <header>
+      <div class="wrapper">
+        <Page />
+      </div>
+    </header>
 
-  <!-- <main>
-    <TransferDbaToken />
-  </main>
- -->
+    <!-- <main>
+      <Referral class="button" />
+    </main> -->
+  </div>
 </template>
 
 <style scoped>
 header {
   line-height: 1.5;
+}
+
+.container {
+  padding: 20px;
+  border-radius: 15px;
+  /* Increase border-radius for a more rounded look */
+  box-shadow: 0 0 30px rgba(238, 236, 236, 0.2);
+  /* Adjust box shadow for a refined appearance */
+  width: 50%;
+  max-width: 500px;
+  display: block;
+}
+
+.button {
+  background-color: #fd6f01;
+  color: #ffffff;
+  padding: 1px;
+  /* Adjust the padding to make the button smaller */
+  border: 2px solid #f5f4f4;
+  /* Add a black border */
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .logo {

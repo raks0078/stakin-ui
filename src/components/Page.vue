@@ -1,5 +1,6 @@
 <script setup>
 import { WalletMultiButton } from 'solana-wallets-vue'
+import { unstake } from '../../lib/unstake';
 </script>
 
 <template>
@@ -12,7 +13,7 @@ import { WalletMultiButton } from 'solana-wallets-vue'
 
         <!-- Deposit and Withdrawal buttons -->
         <button class="button">Stake</button>
-        <button class="button withdrawal">Unstake</button>
+        <button class="button withdrawal" @click="unstake">Unstake</button>
 
         <!-- Grid for information -->
         <div class="grid">
@@ -38,6 +39,7 @@ import { WalletMultiButton } from 'solana-wallets-vue'
         <div class="referral-container">
             <label for="referral">Referral code:</label>
             <input type="text" id="referral" placeholder="Enter your referral code">
+            <Referral class="button"></Referral>
         </div>
     </div>
 </template>
